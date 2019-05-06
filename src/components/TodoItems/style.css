@@ -2,7 +2,12 @@
     list-style-type: none;
 }
 
-.item {
+.items {
     width: 70vh;
     max-width: 70vh;
+
+}
+
+.item {
+    font-size: large;
 }

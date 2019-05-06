@@ -13,9 +13,13 @@ class TodoItems extends Component{
 ;
         return(
 
-            <ul className="item">
-                {list.map((val)=> <div key={val.id} style={{display: 'flex'}}><input type="checkbox"/>
-                                        <li className="list">{val.value}</li></div>)}
+            <ul className="items">
+                {list.map((val) => <p key={val.id} >
+                                        <label className="item">
+                                            <input type="checkbox"/>
+                                            <span>{val.value}</span>
+                                        </label>
+                                    </p>)}
             </ul>
 
         )

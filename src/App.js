@@ -13,7 +13,8 @@ class App extends Component{
         this.state = {
             userInput: '',
             itemList: [],
-            id: 0
+            id: 0,
+            desc: ''
         };
     }
 
@@ -23,18 +24,25 @@ class App extends Component{
         });
     }
 
+    changeUserDesc(input){
+        this.setState({
+            desc: input
+        })
+    }
+
     addToItemList(input){
         let items = this.state.itemList;
         let temp_id = this.state.id;
         temp_id++;
 
-        items.push({value: input, id: temp_id});
+        items.push({value: input, id: temp_id, desc: this.state.desc});
 
 
         this.setState({
             itemList: items,
             userInput: '',
-            id: temp_id
+            id: temp_id,
+            desc: ''
         })
     }
 
@@ -55,9 +63,11 @@ class App extends Component{
 
                 <TodoForm
                     style={widthStyle}
-                    onChange={ (e)=>this.changeUserInput(e.target.value)}
-                    value={this.state.userInput}
-                    onClick={ ()=>this.addToItemList(this.state.userInput)}/>
+                    onChangeInput={ (e)=>this.changeUserInput(e.target.value)}
+                    valueInput={this.state.userInput}
+                    onClick={ ()=>this.addToItemList(this.state.userInput)}
+                    onChangeDesc={ (e)=>this.changeUserDesc(e.target.value)}
+                    valueDesc={this.state.desc}/>
             </div>
             </div>
         )
